@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: customers
+    description: "Customer dimension table with order and payment aggregates"
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+      - name: first_name
+        tests:
+          - not_null
+      - name: last_name
+        tests:
+          - not_null
+      - name: first_order
+        description: "First order date for the customer"
+      - name: most_recent_order
+        description: "Most recent order date for the customer"
+      - name: number_of_orders
+        description: "Total number of orders placed by the customer"
+      - name: customer_lifetime_value
+        description: "Sum of all payments made by the customer"

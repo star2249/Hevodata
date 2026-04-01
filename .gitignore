@@ -1,0 +1,20 @@
+# Ignore dbt profiles (contains credentials)
+profiles.yml
+
+# Ignore environment configs
+.bashrc
+.bash_profile
+
+# Ignore dbt build artifacts
+target/
+dbt_packages/
+logs/
+
+# Ignore Python cache and logs
+__pycache__/
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
