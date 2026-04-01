@@ -132,7 +132,8 @@ Replace <Databasename> with a db you want for the PostgreSQL
 The default PostgreSQL database inside the container is named postgres, but you can create and use other database names as needed.
 
  -v pg_data:/var/lib/postgresql 
-  -d postgres:latest  # This option mounts a Docker volume named 'pg_data' to the container's data directory to create persistent storage for PostgreSQL data, ensuring data is retained across container restarts or recreations
+  -d postgres:latest  
+  # This option mounts a Docker volume named 'pg_data' to the container's data directory to create persistent storage for PostgreSQL data, ensuring data is retained across container restarts or recreations
 
 Example:
 
@@ -148,7 +149,7 @@ Verify the container is running:
 
 **2. Create Tables and Load CSV Data**
 
-Connect to the PostgreSQL container:
+**Connect to the PostgreSQL container:**
 
 You can connect to the PostgreSQL container using several methods, with flexibility to use the PostgreSQL database name (e.g., pgdb) and any valid PostgreSQL user:
 
@@ -164,27 +165,25 @@ Using psql installed on your local machine or laptop:
 
 Run the command:
 
-psql -h <container_ip_or_hostname> -p 5432 -U <username>
+**psql -h <container_ip_or_hostname> -p 5432 -U <username>**
 
 Enter the password when prompted. You can use any PostgreSQL user, not just 'postgres'.
 
 Using Docker exec to connect directly inside the container:
 
 Run the command:
-
-docker exec -it <container_name> psql -U <username> -d <database_name>
+**
+docker exec -it <container_name> psql -U <username> -d <database_name>**
 
 Replace <username> and <container_name> with the desired PostgreSQL user.
 
 These methods allow flexibility in connecting to your PostgreSQL container using different users and tools
 
-Create the required tables:
+****Create the required tables**:
 
-I have not added the DDL of the tables to avoid security issues, since we do not have to share the DB etc details
+**I have not added the DDL of the tables to avoid security issues, since we do not have to share the DB etc details*
 
-
-
-Load CSV files into the tables using copy or insert statements
+**Load CSV files into the tables using copy or insert statements**
 
 **3. Sign Up for Snowflake Trial**
 
