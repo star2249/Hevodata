@@ -1,12 +1,12 @@
-Setup Guide
+**Setup Guide**
 
 This document provides step-by-step instructions to set up the environment and pipeline for the dbt project.
 
 This project contains two README files for clarity:
 
-📘 1. Data Pipeline Setup
+📘 **1. Data Pipeline Setup**
 
-👉 Refer to: README_SETUP.md
+👉 **Refer to: README_SETUP.md**
 
 Covers:
 
@@ -18,9 +18,9 @@ Snowflake destination setup
 
 Data ingestion & validation
 
-📗 2. dbt Models & Transformations
+📗 2. **dbt Models & Transformations**
 
-👉 Refer to: README.md
+👉 **Refer to: README.md**
 
 Covers:
 
@@ -32,25 +32,25 @@ Tests and validations
 
 Running dbt locally
 
-🏗️ Architecture
+🏗️ **Architecture**
 
-PostgreSQL → Hevo Data → Snowflake → dbt Core → Analytics Tables
+**PostgreSQL → Hevo Data → Snowflake → dbt Core → Analytics Tables**
 
-🔗 Reference
+🔗 **Reference**
 
 Hevo Official Docs: https://docs.hevodata.com/
 
 🚀 Quick Start
 
-Step 1: Setup Data Pipeline
+**Step 1: Setup Data Pipeline**
 
 Follow instructions in:👉 README_SETUP.md
 
-Step 2: Run dbt Models
+**Step 2: Run dbt Models**
 
 Follow instructions in:👉 README.md
 
-🔐 Security Notes
+**🔐 Security Notes**
 
 Credentials are NOT stored in this repository
 
@@ -58,7 +58,7 @@ Use environment variables for sensitive data
 
 profiles.yml is excluded from version control
 
-🎯 Key Highlights
+**🎯 Key Highlights**
 
 Built using modern ELT architecture
 
@@ -68,7 +68,7 @@ Modular and reusable dbt models
 
 Clean documentation for easy onboarding
 
-1. Prerequisite: Create VM in AWS Account
+**1. Prerequisite: Create VM in AWS Account**
 
 Ensure you have created a Virtual Machine (VM) instance in your AWS account to host the PostgreSQL database or other components as needed.
 
@@ -80,30 +80,30 @@ Configure security groups and network settings to allow necessary access. * Log 
 
 Update the package repository:
 
-sudo apt-get update
+**sudo apt-get update**
 
 Install Docker using the package manager:
 
 For Ubuntu/Debian:
 
-sudo apt-get install -y docker.io
+**sudo apt-get install -y docker.io**
 
 For CentOS/RHEL:
 
-sudo yum install -y docker
+**sudo yum install -y docker**
 
-Start and enable the Docker service:
+**Start and enable the Docker service:**
 
 sudo systemctl start docker
 sudo systemctl enable docker
 
-Verify Docker installation:
+****Verify Docker installation:**
 
 docker --version
 
 This will install Docker on your VM, allowing you to run PostgreSQL containers or other Docker images as needed.
 
-1. Install PostgreSQL Database (Docker-based)
+**1. Install PostgreSQL Database (Docker-based)**
 
 Ensure Docker is installed on your local machine or cloud VM.
 
@@ -111,14 +111,14 @@ Pull and run the PostgreSQL image on the AWS VM machine
 
 docker run --name <container_name> -e POSTGRES_PASSWORD=<your_password> -p 5432:5432 -d postgres:latest
 
-sudo docker run --name <container_name> 
+**sudo docker run --name <container_name> 
   -e POSTGRES_USER=<username> 
   -e POSTGRES_PASSWORD=<your_password> 
   -e POSTGRES_DB=<Databasename> 
   -p 5432:5432 
   -v pg_data:/var/lib/postgresql 
   -d postgres:latest
-
+**
 
 
 Replace <container_name> with your desired Docker container name.
@@ -144,9 +144,9 @@ You can connect to any other database you create inside the container using your
 
 Verify the container is running:
 
-sudo docker ps
+**sudo docker ps**
 
-2. Create Tables and Load CSV Data
+**2. Create Tables and Load CSV Data**
 
 Connect to the PostgreSQL container:
 
@@ -186,13 +186,13 @@ I have not added the DDL of the tables to avoid security issues, since we do not
 
 Load CSV files into the tables using copy or insert statements
 
-3. Sign Up for Snowflake Trial
+**3. Sign Up for Snowflake Trial**
 
 Visit Snowflake Trial and create a free account.
 
 Set up a warehouse and database.
 
-4. Sign Up for Hevo Trial via Snowflake Partner Connect
+**4. Sign Up for Hevo Trial via Snowflake Partner Connect**
 
 Log in to your Snowflake account.
 
@@ -202,7 +202,7 @@ Select Hevo Data and sign up for a trial account.
 
 Please follow the document at the link : https://hevodata.com/learn/snowflake-partner-connect-hevo/
 
-5. Build the Pipeline
+**5. Build the Pipeline**
 
 In Hevo, create a new pipeline.
 
@@ -232,11 +232,11 @@ Since dbt Cloud wasn’t available for the hevo free tier account , I implemente
 
 Using Hevo Data (Free tier) + dbt Core + GitHub is used in the setup/
 
-Verification
+**Verification**
 
 Run SELECT queries on the relevant Snowflake tables to verify data ingestion; specific queries are not included to avoid exposing database details.
 
-Notes
+**Notes**
 
 Ensure network access between your PostgreSQL container and Hevo.
 
